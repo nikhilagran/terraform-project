@@ -17,10 +17,9 @@ provider "null" {}
 # Create local directory
 resource "null_resource" "make_directory" {
   provisioner "local-exec" {
-    command = "mkdir -p ${var.folder_name}"
+    command = "mkdir generated"
   }
 }
-
 # Create a local file inside the directory
 resource "local_file" "example_file" {
   depends_on = [null_resource.make_directory]
